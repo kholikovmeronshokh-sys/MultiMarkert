@@ -18,7 +18,7 @@ function Profile({ user }) {
 
   const fetchUserNFTs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/nft/all')
+      const response = await axios.get('https://multimarkert-production.up.railway.app/api/nft/all')
       const allNFTs = response.data
 
       const created = allNFTs.filter(nft => nft.ownerId === user.id)
@@ -178,7 +178,7 @@ function Profile({ user }) {
         <div className="nft-grid">
           {myNFTs.map((nft) => (
             <div key={nft.id} className="nft-card">
-              <img src={`http://localhost:5000/${nft.image}`} alt={nft.name} />
+              <img src={`https://multimarkert-production.up.railway.app/${nft.image}`} alt={nft.name} />
               <div className="nft-card-content">
                 <h3>{nft.name}</h3>
                 <div className="price">${nft.price}</div>
@@ -202,7 +202,7 @@ function Profile({ user }) {
           <div className="nft-grid">
             {boughtNFTs.map((nft) => (
               <div key={nft.id} className="nft-card">
-                <img src={`http://localhost:5000/${nft.image}`} alt={nft.name} />
+                <img src={`https://multimarkert-production.up.railway.app/${nft.image}`} alt={nft.name} />
                 <div className="nft-card-content">
                   <h3>{nft.name}</h3>
                   <div className="price">${nft.price}</div>

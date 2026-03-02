@@ -17,7 +17,7 @@ function CreateNFT({ user }) {
 
   const searchUnsplash = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/unsplash/search?query=${searchQuery}&per_page=12`)
+      const response = await axios.get(`https://multimarkert-production.up.railway.app/api/unsplash/search?query=${searchQuery}&per_page=12`)
       setUnsplashImages(response.data.results || [])
       setShowUnsplash(true)
     } catch (error) {
@@ -59,7 +59,7 @@ function CreateNFT({ user }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.post('http://localhost:5000/api/nft/create', data, {
+      await axios.post('https://multimarkert-production.up.railway.app/api/nft/create', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

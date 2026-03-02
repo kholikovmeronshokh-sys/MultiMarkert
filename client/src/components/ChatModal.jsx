@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import io from 'socket.io-client'
 
-const socket = io('http://localhost:5000')
+const socket = io('https://multimarkert-production.up.railway.app')
 
 function ChatModal({ nft, user, onClose, onGift }) {
   const [messages, setMessages] = useState([])
@@ -28,7 +28,7 @@ function ChatModal({ nft, user, onClose, onGift }) {
   const fetchMessages = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get(`http://localhost:5000/api/chat/messages/${nft.id}`, {
+      const response = await axios.get(`https://multimarkert-production.up.railway.app/api/chat/messages/${nft.id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessages(response.data)
@@ -43,7 +43,7 @@ function ChatModal({ nft, user, onClose, onGift }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.post('http://localhost:5000/api/chat/send', {
+      await axios.post('https://multimarkert-production.up.railway.app/api/chat/send', {
         nftId: nft.id,
         message: newMessage
       }, {

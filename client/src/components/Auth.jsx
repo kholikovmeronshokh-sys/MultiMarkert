@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_URL = import.meta.env.PROD ? '/api' : 'http://localhost:5000/api'
+const API_URL = import.meta.env.PROD ? '/api' : 'https://multimarkert-production.up.railway.app/api'
 
 function Auth({ setUser }) {
   const [isLogin, setIsLogin] = useState(true)
@@ -18,7 +18,7 @@ function Auth({ setUser }) {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register'
-      const response = await axios.post(`http://localhost:5000${endpoint}`, formData)
+      const response = await axios.post(`https://multimarkert-production.up.railway.app${endpoint}`, formData)
       
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('user', JSON.stringify(response.data.user))

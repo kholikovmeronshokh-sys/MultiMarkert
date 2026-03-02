@@ -16,7 +16,7 @@ function NFTMarket({ user }) {
 
   const fetchNFTs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/nft/all')
+      const response = await axios.get('https://multimarkert-production.up.railway.app/api/nft/all')
       setNfts(response.data)
     } catch (error) {
       console.error('Error fetching NFTs:', error)
@@ -27,7 +27,7 @@ function NFTMarket({ user }) {
     try {
       const token = localStorage.getItem('token')
       await axios.post(
-        `http://localhost:5000/api/nft/buy/${nftId}`,
+        `https://multimarkert-production.up.railway.app/api/nft/buy/${nftId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -44,7 +44,7 @@ function NFTMarket({ user }) {
     try {
       const token = localStorage.getItem('token')
       await axios.post(
-        `http://localhost:5000/api/nft/confirm/${nftId}`,
+        `https://multimarkert-production.up.railway.app/api/nft/confirm/${nftId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -60,7 +60,7 @@ function NFTMarket({ user }) {
     try {
       const token = localStorage.getItem('token')
       await axios.post(
-        `http://localhost:5000/api/nft/rate/${nftId}`,
+        `https://multimarkert-production.up.railway.app/api/nft/rate/${nftId}`,
         { rating },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -98,7 +98,7 @@ function NFTMarket({ user }) {
         <div className="nft-grid">
           {nfts.map((nft) => (
             <div key={nft.id} className="nft-card">
-              <img src={`http://localhost:5000/${nft.image}`} alt={nft.name} />
+              <img src={`https://multimarkert-production.up.railway.app/${nft.image}`} alt={nft.name} />
               <div className="nft-card-content">
                 <h3>{nft.name}</h3>
                 <div className="price">${nft.price}</div>

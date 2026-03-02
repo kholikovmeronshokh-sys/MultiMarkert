@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import CryptoChart from './CryptoChart'
 
-const API_URL = import.meta.env.PROD ? '' : 'http://localhost:5000'
+const API_URL = import.meta.env.PROD ? '' : 'https://multimarkert-production.up.railway.app'
 const socket = io(API_URL || window.location.origin, {
   transports: ['polling', 'websocket']
 })

@@ -16,7 +16,7 @@ function TrendingNFTs() {
   const fetchTrendingCollections = async () => {
     try {
       setLoading(true)
-      const response = await axios.get('http://localhost:5000/api/moralis/trending-collections')
+      const response = await axios.get('https://multimarkert-production.up.railway.app/api/moralis/trending-collections')
       console.log('Trending collections response:', response.data)
       
       let collectionsData = []
@@ -48,7 +48,7 @@ function TrendingNFTs() {
     
     try {
       setLoading(true)
-      const response = await axios.get(`http://localhost:5000/api/moralis/wallet-nfts/${walletAddress}`)
+      const response = await axios.get(`https://multimarkert-production.up.railway.app/api/moralis/wallet-nfts/${walletAddress}`)
       setWalletNFTs(response.data.content || response.data.result || [])
     } catch (error) {
       console.error('Error fetching wallet NFTs:', error)
