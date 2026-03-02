@@ -1,0 +1,9 @@
+node_modules/
+uploads/*
+!uploads/.gitkeep
+client/node_modules/
+client/dist/
+*.log
+multimarket.db
+multimarket.db-journal
+.vercel
